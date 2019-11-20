@@ -4,7 +4,7 @@ target/
 !**/src/main/**
 !**/src/test/**
 
-### STS ###git add .
+### STS ###
 .apt_generated
 .classpath
 .factorypath
