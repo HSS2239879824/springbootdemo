@@ -13,3 +13,14 @@
             <artifactId>okhttp</artifactId>
             <version>3.3.0</version>
         </dependency>
+        
+        <!--H2数据库-->
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+             <artifactId>h2</artifactId>
+             <version>1.4.200</version>
+             <scope>test</scope>
+        </dependency>
+
+
