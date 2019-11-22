@@ -6,6 +6,9 @@
 [授权登录Api](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 ##工具
 
+##Mysql时区问题
+set global time_zone='+8:00';
+
 ##依赖
         OKHttp的maven依赖
         <dependency>
