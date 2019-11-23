@@ -1,13 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.mapper.UserMapper;
-import model.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;

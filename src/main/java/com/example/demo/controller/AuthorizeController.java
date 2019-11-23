@@ -4,7 +4,7 @@ import com.example.demo.dto.AccessTokenDTO;
 import com.example.demo.dto.GithubUser;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.provider.GithubProvider;
-import model.User;
+import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

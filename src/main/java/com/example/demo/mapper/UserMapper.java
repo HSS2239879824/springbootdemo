@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import model.User;
+import com.example.demo.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
