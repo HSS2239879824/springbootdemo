@@ -14,4 +14,10 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE token = #{token}")
     User findByToken(@Param("token") String token);
+
+    @Select("SELECT COUNT(id) FROM USER WHERE account_id = '${accountId}'")
+    Integer findByAccountIdCount(@Param("accountId") String accountId);
+
+    @Select("SELECT * FROM USER WHERE account_id = '${accountId}'")
+    User findByAccountId(@Param("accountId") String accountId);
 }

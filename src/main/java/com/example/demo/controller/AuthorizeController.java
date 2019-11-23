@@ -48,18 +48,21 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        if(githubUser != null){
-            User user = new User();
+        if (githubUser != null) {
+            Integer userCount = this.userMapper.findByAccountIdCount(String.valueOf(githubUser.getId()));
             String token = UUID.randomUUID().toString();
-            user.setToken(token);
-            user.setName(githubUser.getName());
-            user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreate());
-            userMapper.insert(user);
-            response.addCookie(new Cookie("token",token));
+            if (userCount < 1) {
+                User user = new User();
+                user.setToken(token);
+                user.setName(githubUser.getName());
+                user.setAccountId(String.valueOf(githubUser.getId()));
+                user.setGmtCreate(System.currentTimeMillis());
+                user.setGmtModified(user.getGmtCreate());
+                userMapper.insert(user);
+            }
+            response.addCookie(new Cookie("accountId", String.valueOf(githubUser.getId())));
             return "redirect:/";
-        }else{
+        } else {
             return "redirect:/";
             //登陆失败，重新登陆
         }
