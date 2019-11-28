@@ -2,6 +2,7 @@
 [GIt 的东西](https://github.com/HSS2239879824/springbootdemo)
 [flaway学习的一个网站](https://flywaydb.org/getstarted/firststeps/maven)
 [授权登录Api](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+[lombok](https://projectlombok.org/)
 ##工具
 UML类图 工具
 ##Mysql时区问题

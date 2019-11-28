@@ -51,14 +51,18 @@ public class AuthorizeController {
         if (githubUser != null) {
             Integer userCount = this.userMapper.findByAccountIdCount(String.valueOf(githubUser.getId()));
             String token = UUID.randomUUID().toString();
+            User user = new User();
+            user.setToken(token);
+            user.setName(githubUser.getName());
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setBio(githubUser.getBio());
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+            user.setAvatarUrl(githubUser.getAvatar_url());
             if (userCount < 1) {
-                User user = new User();
-                user.setToken(token);
-                user.setName(githubUser.getName());
-                user.setAccountId(String.valueOf(githubUser.getId()));
-                user.setGmtCreate(System.currentTimeMillis());
-                user.setGmtModified(user.getGmtCreate());
                 userMapper.insert(user);
+            }else{
+                userMapper.update(user);
             }
             response.addCookie(new Cookie("accountId", String.valueOf(githubUser.getId())));
             return "redirect:/";
